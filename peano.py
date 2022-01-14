@@ -2,7 +2,7 @@ from fractal import Fractal
 from geometry import rotate_left, rotate_right
 
 
-class Hat(Fractal):
+class Peano(Fractal):
     def _fractalize(self, point_a, point_b, level):
         if level == 0:
             self._image.draw_line(point_a, point_b)
@@ -23,15 +23,28 @@ class Hat(Fractal):
         x5, y5 = rotate_left((x3, y3), (x4, y4), sin, cos)
         x6, y6 = rotate_right((x4, y4), (x2, y2), sin, cos)
 
+        sin = -1
+
+        x7, y7 = rotate_left((x3, y3), (x4, y4), sin, cos)
+        x8, y8 = rotate_right((x4, y4), (x2, y2), sin, cos)
+
+        edges = [
+            ((x3, y3), (x4, y4)),
+            ((x1, y1), (x3, y3)),
+            ((x3, y3), (x5, y5)),
+
+        ]
+
+        self._fractalize((x3, y3), (x4, y4), level - 1)
         self._fractalize((x1, y1), (x3, y3), level - 1)
         self._fractalize((x3, y3), (x5, y5), level - 1)
         self._fractalize((x5, y5), (x6, y6), level - 1)
         self._fractalize((x6, y6), (x4, y4), level - 1)
         self._fractalize((x4, y4), (x2, y2), level - 1)
+        self._fractalize((x3, y3), (x7, y7), level - 1)
+        self._fractalize((x7, y7), (x8, y8), level - 1)
+        self._fractalize((x8, y8), (x4, y4), level - 1)
 
     def draw(self, level):
-        self._fractalize((250, 750), (750, 750), level)
-        self._fractalize((750, 750), (750, 250), level)
-        self._fractalize((750, 250), (250, 250), level)
-        self._fractalize((250, 250), (250, 750), level)
-        self._image.show_image('Hat')
+        self._fractalize((100, 500), (900, 500), level)
+        self._image.show_image('Peano')

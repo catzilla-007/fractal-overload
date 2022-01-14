@@ -1,4 +1,5 @@
 from fractal import Fractal
+from geometry import rotate_left
 
 
 class Koch(Fractal):
@@ -10,23 +11,21 @@ class Koch(Fractal):
         x1, y1 = point_a
         x2, y2 = point_b
 
-        x_left = x1 + (x2 - x1) / 3
-        y_left = y1 + (y2 - y1) / 3
+        x3 = x1 + (x2 - x1) / 3
+        y3 = y1 + (y2 - y1) / 3
 
-        x_right = x2 + (x1 - x2) / 3
-        y_right = y2 + (y1 - y2) / 3
+        x4 = x2 + (x1 - x2) / 3
+        y4 = y2 + (y1 - y2) / 3
 
         cos = 0.5
         sin = 0.866025403  # sqrt(3) / 2
 
-        # left rotation
-        x_rot = (x_right * cos) - (y_right * sin) + (x_left * (1 - cos)) + (y_left * sin)
-        y_rot = (x_right * sin) + (y_right * cos) + (y_left * (1 - cos)) - (x_left * sin)
+        x5, y5 = rotate_left((x3, y3), (x4, y4), sin, cos)
 
-        self._fractalize((x1, y1), (x_left, y_left), level - 1)
-        self._fractalize((x_left, y_left), (x_rot, y_rot), level - 1)
-        self._fractalize((x_rot, y_rot), (x_right, y_right), level -1)
-        self._fractalize((x_right, y_right), (x2, y2), level - 1)
+        self._fractalize((x1, y1), (x3, y3), level - 1)
+        self._fractalize((x3, y3), (x5, y5), level - 1)
+        self._fractalize((x5, y5), (x4, y4), level -1)
+        self._fractalize((x4, y4), (x2, y2), level - 1)
 
     def draw(self, level: int):
         self._fractalize((800, 250), (200, 250), level)
