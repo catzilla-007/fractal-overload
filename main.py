@@ -2,18 +2,17 @@ from image import Image
 from koch import Koch
 from hat import Hat
 from peano import Peano
+from inv_koch import InvKoch
+
 
 width, height = 1000, 1000
-
 black = (0, 0, 0)
 white = (255, 255, 255)
 
-image = Image(height, width, black, white)
+fractals = [Koch, Hat, Peano, InvKoch]
 
-# koch = Koch(image)
-# hat = Hat(image)
-peano = Peano(image)
-
-# koch.draw(6)
-# hat.draw(3)
-peano.draw(3)
+for Fractal in fractals:
+    for i in range(5):
+        image = Image(height, width, black, white)
+        fractal = Fractal(image)
+        fractal.draw(i)
