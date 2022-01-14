@@ -21,7 +21,34 @@ $ pipenv run fractal
 using bare python
 
 ```bash
-pip install numpy
-pip install opencv-python
-python main.py
+$ pip install numpy
+$ pip install opencv-python
+$ python main.py
 ```
+
+### Samples
+
+#### Koch
+
+Level 0
+
+[koch-level-0](img/koch-0.png)
+
+Level 1
+
+[koch-level-1](img/koch-1.png)
+
+Level 2
+
+[koch-level-2](img/koch-2.png)
+
+Level 3
+
+[koch-level-3](img/koch-3.png)
+
+Level 4
+
+[koch-level-4](img/koch-4.png)
+
+
+#### Hat
