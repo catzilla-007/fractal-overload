@@ -1,4 +1,4 @@
-from helpers import create_line, blank_image, show_image
+from helpers import create_line, blank_image, show_image, save_image
 
 
 class Image:
@@ -21,3 +21,6 @@ class Image:
 
     def show_image(self, title="Image"):
         show_image(self._image, title)
+
+    def save_image(self, filename="image.png"):
+        save_image(filename, self._image)
