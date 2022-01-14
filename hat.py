@@ -30,8 +30,8 @@ class Hat(Fractal):
         self._fractalize((x4, y4), (x2, y2), level - 1)
 
     def draw(self, level):
-        self._fractalize((250, 750), (750, 750), level)
-        self._fractalize((750, 750), (750, 250), level)
-        self._fractalize((750, 250), (250, 250), level)
-        self._fractalize((250, 250), (250, 750), level)
-        self._image.show_image('Hat')
+        self._fractalize((25, 75), (75, 75), level)
+        self._fractalize((75, 75), (75, 25), level)
+        self._fractalize((75, 25), (25, 25), level)
+        self._fractalize((25, 25), (25, 75), level)
+        self._image.show_image(f'Hat level {level}')

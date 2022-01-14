@@ -28,7 +28,7 @@ class Koch(Fractal):
         self._fractalize((x4, y4), (x2, y2), level - 1)
 
     def draw(self, level: int):
-        self._fractalize((800, 250), (200, 250), level)
-        self._fractalize((500, 770), (800, 250), level)
-        self._fractalize((200, 250), (500, 770), level)
-        self._image.show_image('Koch')
+        self._fractalize((80, 25), (20, 25), level)
+        self._fractalize((50, 77), (80, 25), level)
+        self._fractalize((20, 25), (50, 77), level)
+        self._image.show_image(f'Koch level {level}')

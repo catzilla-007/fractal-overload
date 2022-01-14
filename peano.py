@@ -46,5 +46,5 @@ class Peano(Fractal):
         self._fractalize((x8, y8), (x4, y4), level - 1)
 
     def draw(self, level):
-        self._fractalize((100, 500), (900, 500), level)
-        self._image.show_image('Peano')
+        self._fractalize((10, 50), (90, 50), level)
+        self._image.show_image(f'Peano level {level}')

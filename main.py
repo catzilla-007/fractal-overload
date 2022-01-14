@@ -5,7 +5,7 @@ from peano import Peano
 from inv_koch import InvKoch
 
 
-width, height = 1000, 1000
+width, height = 600, 600
 black = (0, 0, 0)
 white = (255, 255, 255)
 
