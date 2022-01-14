@@ -32,18 +32,16 @@ class Peano(Fractal):
             ((x3, y3), (x4, y4)),
             ((x1, y1), (x3, y3)),
             ((x3, y3), (x5, y5)),
-
+            ((x5, y5), (x6, y6)),
+            ((x6, y6), (x4, y4)),
+            ((x4, y4), (x2, y2)),
+            ((x3, y3), (x7, y7)),
+            ((x7, y7), (x8, y8)),
+            ((x8, y8), (x4, y4)),
         ]
 
-        self._fractalize((x3, y3), (x4, y4), level - 1)
-        self._fractalize((x1, y1), (x3, y3), level - 1)
-        self._fractalize((x3, y3), (x5, y5), level - 1)
-        self._fractalize((x5, y5), (x6, y6), level - 1)
-        self._fractalize((x6, y6), (x4, y4), level - 1)
-        self._fractalize((x4, y4), (x2, y2), level - 1)
-        self._fractalize((x3, y3), (x7, y7), level - 1)
-        self._fractalize((x7, y7), (x8, y8), level - 1)
-        self._fractalize((x8, y8), (x4, y4), level - 1)
+        for a, b in edges:
+            self._fractalize(a, b, level - 1)
 
     def draw(self, level):
         self._fractalize((10, 50), (90, 50), level)

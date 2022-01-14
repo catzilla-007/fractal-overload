@@ -22,10 +22,15 @@ class Koch(Fractal):
 
         x5, y5 = rotate_left((x3, y3), (x4, y4), sin, cos)
 
-        self._fractalize((x1, y1), (x3, y3), level - 1)
-        self._fractalize((x3, y3), (x5, y5), level - 1)
-        self._fractalize((x5, y5), (x4, y4), level -1)
-        self._fractalize((x4, y4), (x2, y2), level - 1)
+        edges = [
+            ((x1, y1), (x3, y3)),
+            ((x3, y3), (x5, y5)),
+            ((x5, y5), (x4, y4)),
+            ((x4, y4), (x2, y2)),
+        ]
+
+        for a, b in edges:
+            self._fractalize(a, b, level - 1)
 
     def draw(self, level: int):
         self._fractalize((80, 25), (20, 25), level)

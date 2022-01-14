@@ -16,4 +16,6 @@ for Fractal in fractals:
         image = Image(height, width, black, white)
         fractal = Fractal(image)
         fractal.draw(i)
+
+        # to save image
         # image.save_image(f'img/{type(fractal).__name__.lower()}-{i}.png')

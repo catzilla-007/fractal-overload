@@ -23,11 +23,16 @@ class Hat(Fractal):
         x5, y5 = rotate_left((x3, y3), (x4, y4), sin, cos)
         x6, y6 = rotate_right((x4, y4), (x2, y2), sin, cos)
 
-        self._fractalize((x1, y1), (x3, y3), level - 1)
-        self._fractalize((x3, y3), (x5, y5), level - 1)
-        self._fractalize((x5, y5), (x6, y6), level - 1)
-        self._fractalize((x6, y6), (x4, y4), level - 1)
-        self._fractalize((x4, y4), (x2, y2), level - 1)
+        edges = [
+            ((x1, y1), (x3, y3)),
+            ((x3, y3), (x5, y5)),
+            ((x5, y5), (x6, y6)),
+            ((x6, y6), (x4, y4)),
+            ((x4, y4), (x2, y2)),
+        ]
+
+        for a, b in edges:
+            self._fractalize(a, b, level - 1)
 
     def draw(self, level):
         self._fractalize((25, 75), (75, 75), level)
