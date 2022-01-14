@@ -29,6 +29,23 @@ $ pip install opencv-python
 $ python main.py
 ```
 
+code sample
+```python
+from image import Image
+from peano import Peano
+
+width, height = 600, 600
+black = (0, 0, 0)
+white = (255, 255, 255)
+
+image = Image(height, width, black, white)
+peano = Peano(image)
+peano.draw(6)
+
+# if you want to save the image
+image.save_image('fractal.png')
+```
+
 ### Samples
 
 #### Koch
